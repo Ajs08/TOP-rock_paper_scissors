@@ -1,1 +1,2 @@
-# piedra_papel_tijera
+# The Odin Project - Rock Paper Scissors
+
