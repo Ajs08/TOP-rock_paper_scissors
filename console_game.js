@@ -27,13 +27,23 @@ function playRound(playerChoice, computerChoice) {
     }
 }
 
+function endGame(buttonArray) {
+    for (const button of buttonArray) {
+        button.disabled = true;
+    }
+}
+
+function totalWins(array, item) {
+    return array.filter(x => x === item).length;
+}
+
 function playGame(buttonArray) {
     const results = [];
 
     for (const button of buttonArray) {
         button.addEventListener("click", () => {
-            let cpu = getComputerChoice();
-            let roundResult = playRound(button.textContent, cpu);
+            const cpu = getComputerChoice();
+            const roundResult = playRound(button.textContent, cpu);
 
             if (roundResult === "Player") {
                 playerScore.textContent = Number(playerScore.textContent) + 1;
@@ -43,10 +53,10 @@ function playGame(buttonArray) {
 
             results.push(roundResult);
             
-            if (results.filter(x => x === "Player").length >= 5) {
+            if (totalWins(results, "Player") >= 5) {
                 resultLabel.textContent = "Player wins! (click this text to restart the game)";
                 endGame(buttonArray);
-            } else if (results.filter(x => x === "CPU").length >= 5) {
+            } else if (totalWins(results, "CPU") >= 5) {
                 resultLabel.textContent = "CPU wins! (click this text to restart the game)";
                 endGame(buttonArray);
             }
@@ -55,12 +65,6 @@ function playGame(buttonArray) {
                 resultLabel.addEventListener("click", () => {location.reload()});
             }
         })
-    }
-}
-
-function endGame(buttonArray) {
-    for (const button of buttonArray) {
-        button.disabled = true;
     }
 }
 
