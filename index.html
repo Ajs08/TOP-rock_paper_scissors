@@ -4,10 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div>
-        <h1>Rock paper scissors</h1>
+    <h1>Rock paper scissors</h1>
+    <div class="content">
+        <div id="options">
+            <button id="rock">rock</button>
+            <button id="paper">paper</button>
+            <button id="scissors">scissors</button>
+        </div>
+        <div id="results">
+            <h3>Player <span id="player-score">0</span> vs CPU <span id="cpu-score">0</span></h3>
+            <h3 id="result-label"></h3>
+        </div>
     </div>
     <script src="console_game.js"></script>
 </body>
