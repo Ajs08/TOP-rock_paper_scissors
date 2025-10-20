@@ -2,6 +2,7 @@ const buttons = document.querySelectorAll("button");
 
 const playerScore = document.querySelector("#player-score");
 const cpuScore = document.querySelector("#cpu-score");
+const tieScore = document.querySelector("#tie-score");
 
 const resultLabel = document.querySelector("#result-label");
 
@@ -49,6 +50,8 @@ function playGame(buttonArray) {
                 playerScore.textContent = Number(playerScore.textContent) + 1;
             } else if (roundResult === "CPU") {
                 cpuScore.textContent = Number(cpuScore.textContent) + 1;
+            } else {
+                tieScore.textContent = Number(tieScore.textContent) + 1;
             }
 
             results.push(roundResult);
